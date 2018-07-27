@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SearchListView"
+             xmlns:behaviors="clr-namespace:SearchListView.Behaviors"
+             x:Class="SearchListView.MainPage" 
+             Title="Search in ListView">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="_rootGrid" VerticalOptions="FillAndExpand">
+
+                <SearchBar Placeholder="Search items.." Text="{Binding SearchText}">
+                    <SearchBar.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchCommand}"/>
+                    </SearchBar.Behaviors>
+                </SearchBar>
+
+                <ListView x:Name="_ListView" ItemsSource="{Binding Items}"  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="5">
+                                    <Label Text="{Binding Name}" FontSize="Medium"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <Label Text="about.me/deshpandeaditya    feel free to drop by!" TextColor="Navy" FontSize="Micro" VerticalOptions="End" HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
