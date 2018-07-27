@@ -1,4 +1,4 @@
-# xf-listview-search
+# Search in List View
 So basically there are 2 things we need to have
 <ol>
 	<li>a list view with items in it.</li>
